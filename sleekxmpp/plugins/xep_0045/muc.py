@@ -147,7 +147,7 @@ class XEP_0045(BasePlugin):
         statuses = pres['muc']['statuses']
         for status in statuses:
             code = status['code']
-            if code == '110':
+            if code == '110' or code == '201':
                 if pres['type'] != 'unavailable' and not self.api['is_joined_room'](pres['to'], room):
                     self.xmpp.event('groupchat_joined', pres)
                     self.xmpp.event('muc::%s::joined' % room, pres)
